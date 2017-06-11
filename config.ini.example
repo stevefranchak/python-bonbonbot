@@ -1,0 +1,10 @@
+[app]
+sleeptime = 60
+twitch_notify_already_live_streams = false
+
+[slack]
+webhook = https://hooks.slack.com/services/blah/blah/blah
+
+[twitch]
+clientid = abcdef
+streams = stream1,stream2,stream3
