@@ -47,7 +47,8 @@ def sendSlackMessage(msg):
 def twitchJob():
     def getLiveStreams():
         streams = {}
-        res = requests.get('https://api.twitch.tv/kraken/streams/?client_id=' + global_config['twitch']['clientid']  +  '&channel=' + global_config['twitch']['streams'])
+        res = requests.get('https://api.twitch.tv/kraken/streams/?client_id=' + global_config['twitch']['clientid']  +
+                '&channel=' + global_config['twitch']['streams'])
         json = res.json()
 
         if 'streams' not in json:
