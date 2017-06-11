@@ -25,7 +25,7 @@ def loadConfig(config_obj={}, config_file='config.ini'):
         config_obj['app']['sleeptime'] = 60.0
 
     try:
-        config_obj['app']['twitch_notify_already_live_streams'] = bool(config_obj['app']['twitch_notify_already_live_streams'])
+        config_obj['app']['twitch_notify_already_live_streams'] = config_obj['app']['twitch_notify_already_live_streams'].lower() == 'true'
     except:
         config_obj['app']['twitch_notify_already_live_streams'] = False
 
