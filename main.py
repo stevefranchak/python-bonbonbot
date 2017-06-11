@@ -40,7 +40,7 @@ def sendSlackMessage(msg):
     payload = {
         'text': msg,
         'username': 'bonbonbot',
-        'channel': '#testing-nonsense'
+        'channel': '#general'
     }
 
     print(json.dumps(payload))
