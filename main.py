@@ -1,13 +1,9 @@
 #!/usr/bin/python3
 
-try:
-    from configparser import ConfigParser
-    import requests
-    import json
-    import time
-except Exception as e:
-    print(e)
-    exit(1)
+from configparser import ConfigParser
+import requests
+import json
+import time
 
 def loadConfig(config_obj={}, config_file='config.ini'):
     cparser = ConfigParser()
@@ -23,15 +19,15 @@ def loadConfig(config_obj={}, config_file='config.ini'):
     if 'app' not in config_obj:
         config_obj['app'] = {}
 
-    if config_obj['app'].get('sleeptime') is None:
-        config_obj['app']['sleeptime'] = 60.0
-    else:
+    try:
         config_obj['app']['sleeptime'] = float(config_obj['app']['sleeptime'])
+    except:
+        config_obj['app']['sleeptime'] = 60.0
 
-    if config_obj['app'].get('twitch_notify_already_live_streams') is None:
-        config_obj['app']['twitch_notify_already_live_streams'] = False
-    else:
+    try:
         config_obj['app']['twitch_notify_already_live_streams'] = bool(config_obj['app']['twitch_notify_already_live_streams'])
+    except:
+        config_obj['app']['twitch_notify_already_live_streams'] = False
 
     return config_obj
 
